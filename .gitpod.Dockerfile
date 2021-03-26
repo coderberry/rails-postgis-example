@@ -24,4 +24,4 @@ RUN sudo apt-get install -y \
 
 # Run setup script
 USER gitpod
-RUN $THEIA_WORKSPACE_ROOT/bin/setup
+RUN /workspace/rails-postgis-example/bin/setup
