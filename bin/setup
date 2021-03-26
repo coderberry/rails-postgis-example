@@ -15,7 +15,12 @@ FileUtils.chdir APP_ROOT do
 
   puts '== Installing dependencies =='
   system! 'gem install bundler --conservative'
+  system! "bundle config --local cache_all true"
+  system! "bundle config --local cache_all_platforms true"
+  system! "bundle config --local ignore_messages.rpush true"
   system('bundle check') || system!('bundle install')
+
+  system! "gem list \"^foreman$\" -v 0.87.1 -i --silent || gem install foreman"
 
   puts "\n== Install JavaScript dependencies =="
   system! 'bin/yarn'
@@ -30,6 +35,9 @@ FileUtils.chdir APP_ROOT do
 
   puts "\n== Setting up PostGIS =="
   system! 'bin/rails db:gis:setup'
+
+  puts "\n== Run migrations & seeds =="
+  system! 'bin/rails db:migrate db:seed'
 
   puts "\n== Removing old logs and tempfiles =="
   system! 'bin/rails log:clear tmp:clear'

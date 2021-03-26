@@ -1,0 +1,41 @@
+image:
+  file: .gitpod.Dockerfile
+
+ports:
+  - port: 3000 # rails
+    onOpen: ignore
+  - port: 5432 # postgres
+    onOpen: ignore
+  - port: 6379 # redis
+    onOpen: ignore
+
+tasks:
+  - name: shell
+    command: >
+      echo 'Welcome!'
+  - name: rails
+    command: >
+      bin/rails s -b 0.0.0.0
+  - name: sidekiq
+    before: |
+      redis-server &
+    command: >
+      foreman start -f Procfile.sidekiq
+  - name: webpacker
+    command: >
+      bin/webpack-dev-server
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: true
+    addComment: false
+    addBadge: false
+    addLabel: false
+    addCheck: true
+
+vscode:
+  extensions:
+    - connorshea.vscode-ruby-test-adapter@0.6.1:HO9rpcRv7bmRIuo7Mty/zg==
+    - hbenl.vscode-test-explorer@2.15.0:koqDUMWDPJzELp/hdS/lWw==
