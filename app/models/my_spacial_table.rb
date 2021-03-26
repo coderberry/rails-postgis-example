@@ -1,0 +1,2 @@
+class MySpacialTable < ApplicationRecord
+end

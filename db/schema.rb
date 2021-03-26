@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_26_191727) do
+ActiveRecord::Schema.define(version: 2021_03_26_191728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -45,6 +46,17 @@ ActiveRecord::Schema.define(version: 2021_03_26_191727) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["team_id"], name: "index_members_on_team_id"
     t.index ["user_id"], name: "index_members_on_user_id"
+  end
+
+  create_table "my_spacial_tables", force: :cascade do |t|
+    t.geometry "shape1", limit: {:srid=>0, :type=>"geometry"}
+    t.geometry "shape2", limit: {:srid=>0, :type=>"geometry"}
+    t.geometry "path", limit: {:srid=>3785, :type=>"line_string"}
+    t.geography "lonlat", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.geography "lonlatheight", limit: {:srid=>4326, :type=>"st_point", :has_z=>true, :geographic=>true}
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lonlat"], name: "index_my_spacial_tables_on_lonlat", using: :gist
   end
 
   create_table "sjabloon_consents", force: :cascade do |t|
