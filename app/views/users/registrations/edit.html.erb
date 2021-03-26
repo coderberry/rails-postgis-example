@@ -1,0 +1,36 @@
+<div class="max-w-xl mx-auto mt-4">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put,  class: "p-4" }) do |f| %>
+    <%= devise_error_messages!(resource: resource) %>
+
+    <h1 class="mt-2 mb-6 text-xl font-bold"><%= t("edit_registration.header") %></h1>
+
+    <div class="field">
+      <%= f.label :email, t("labels.email") %>
+      <%= f.email_field :email, autocomplete: "email", class: "input", placeholder: t("placeholders.email") %>
+    </div>
+
+    <div class="field">
+      <%= f.label :name, t("labels.name") %>
+      <%= f.text_field :name, class: "input", placeholder: t("placeholders.name") %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :password, t("labels.password") %> <i class="field__helper"><%= t("helpers.change_password") %></i>
+      <%= f.password_field :password, autocomplete: "new-password", class: "input", placeholder: t("placeholders.password") %>
+    </div>
+
+    <div class="field">
+      <%= f.label :current_password, t("labels.current_password") %> <i class="field__helper"><%= t("helpers.confirm_current_password") %></i>
+      <%= f.password_field :current_password, autocomplete: "current-password", class: "input", placeholder: t("placeholders.password") %>
+    </div>
+
+    <div class="buttons">
+      <%= f.submit t("buttons.update"), class: "btn btn--primary" %>
+    </div>
+  <% end %>
+</div>
+

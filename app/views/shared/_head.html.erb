@@ -1,0 +1,12 @@
+<title><%= branch_info if Rails.env.development? %><%= content_for?(:page_title)? yield(:page_title) : "#{Rails.configuration.application_name}" %></title>
+<meta name="description" content="<%= content_for?(:page_description)? yield(:page_description) : "" %>" />
+
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
+<%= render "shared/social_media_meta_tags" %>
+
+
+<%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
+<%= stylesheet_pack_tag "application", "data-turbolinks-track": "reload" %>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+

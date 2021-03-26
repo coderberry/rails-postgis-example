@@ -1,0 +1,14 @@
+<h1 class="mt-3 text-xl font-bold text-gray-700">Teams</h1>
+
+<ul class='mt-2'>
+  <% @teams.each do |team| %>
+    <li>
+      <%= link_to team.name, team, class: 'block px-1 py-1 hover:bg-gray-200 rounded' %>
+    </li>
+  <% end %>
+
+  <li class='mt-2 pt-2 border-t border-gray-300'>
+    <%= link_to 'Add new team', new_team_path, class: 'btn btn--primary' %>
+  </li>
+</ul>
+

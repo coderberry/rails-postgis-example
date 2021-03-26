@@ -1,0 +1,44 @@
+<h1 class='mt-3 text-xl font-bold text-gray-800'>Invites</h1>
+
+<% if @invites.each do |invite| %>
+  <div class='flex items-start justify-between max-w-lg pt-2 mt-2 border-t border-gray-300'>
+    <div class='flex flex-col'>
+      <p>
+        <%= tag.span invite.email %>
+        <%= tag.span 'pending', class: 'px-2 py-1 text-xs leading-none font-semibold text-orange-800 bg-orange-200 rounded-full' if invite.token? %>
+      </p>
+
+      <%= tag.span "Invited by #{invite.sender.name.full}", class: 'text-sm text-gray-600' %>
+    </div>
+
+    <div class='flex flex-col text-right'>
+      <%= tag.time invite.accepted_at? ?
+        invite.accepted_at.strftime('Accepted at %D') :
+        invite.created_at.strftime('Invited at %D'), datetime: invite.created_at, class: 'flex-shrink-0 text-gray-800 text-sm' %>
+
+      <p>
+        <%= link_to 'revoke', team_invite_path(current_team, invite), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ml-2 text-sm text-gray-600 hover:text-red-500' if invite.token? %>
+      </p>
+    </div>
+  </div>
+  <% end.empty? %>
+  <p class='text-sm text-gray-700'>No invited members yet…</p>
+<% end %>
+
+<div class='mt-8 pt-4 max-w-lg border-t border-gray-300'>
+  <h2 class='font-bold text-gray-700'>Invite new team member</h2>
+
+  <%= form_with model: [current_team, @invite], class: 'mt-2' do |form| %>
+    <%= render "shared/flash", flash: @invite.errors %>
+
+    <div class='field'>
+      <%= form.label :email %>
+      <%= form.email_field :email, class: 'input' %>
+    </div>
+
+    <div class='buttons'>
+      <%= form.submit 'Send', class: 'btn btn--primary' %>
+    </div>
+  <% end %>
+</div>
+

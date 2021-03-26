@@ -1,0 +1,17 @@
+{
+  "name": "rails-postgis-example",
+  "private": true,
+  "dependencies": {
+    "@rails/actioncable": "^6.0.0",
+    "@rails/ujs": "6.0.0-beta2",
+    "@rails/webpacker": "5.2.1",
+    "postcss-nested": "4.1.2",
+    "stimulus": "^2.0.0",
+    "tailwindcss": "1.9.6",
+    "turbolinks": "5.2.0"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.2"
+  }
+}

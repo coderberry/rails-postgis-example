@@ -1,0 +1,21 @@
+  <div class="max-w-xl mx-auto mt-4">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "p-4" }) do |f| %>
+    <%= devise_error_messages!(resource: resource) %>
+
+    <h1 class="mt-2 mb-6 text-xl font-bold"><%= t("password_reset.header") %></h1>
+
+    <div class="field">
+      <%= f.label :email, t("labels.email") %>
+
+      <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholders.email"), class: "input" %>
+    </div>
+
+    <div class="buttons">
+      <%= f.submit t("buttons.resent_password"), class: "btn btn--primary" %>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+</div>
+
+

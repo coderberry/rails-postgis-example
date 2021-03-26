@@ -1,0 +1,21 @@
+.hero {
+  @apply mt-16 px-2;
+  @apply text-center;
+}
+
+.hero__heading {
+  @apply text-3xl leading-tight text-gray-900;
+
+  @screen sm {
+    @apply text-5xl;
+  }
+}
+
+.hero__subheading {
+  @apply mt-4 text-xl leading-tight tracking-wide text-gray-600;
+
+  @screen sm {
+    @apply text-2xl;
+  }
+}
+

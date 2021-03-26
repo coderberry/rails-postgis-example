@@ -1,0 +1,4 @@
+---
+:queues:
+  - sjabloon_production_mailers
+  - sjabloon_production_default

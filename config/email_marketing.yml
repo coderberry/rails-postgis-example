@@ -1,0 +1,13 @@
+default: &default
+
+development:
+  <<: *default
+  # provider: # "mailchimp", "mailerlite" or "buttondown"
+  # default_list: "…" # for Mailchimp
+  # default_group_id: "…" # for Mailerlite
+
+production:
+  <<: *default
+  # provider: # "mailchimp", "mailerlite" or "buttondown"
+  # default_list: "…" # for Mailchimp
+  # default_group_id: "…" # for Mailerlite

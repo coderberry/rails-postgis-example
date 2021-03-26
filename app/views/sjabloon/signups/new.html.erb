@@ -1,0 +1,55 @@
+<% content_for :page_title, "Create your #{Rails.configuration.application_name} account." %>
+<% content_for :page_description, "Create your #{Rails.configuration.application_name} account to get access today." %>
+
+<div class="max-w-lg mx-auto mt-4">
+  <%= form_with url: signups_path, local: true, class: "p-4" do |form| %>
+    <%= devise_error_messages!(resource: @signup) %>
+
+    <h1 class="mt-2 mb-6 text-xl"><%= t("signup.header") %></h1>
+
+    <div class="field">
+      <%= form.label :team_name %>
+      <% if has_invite_token? %>
+        <%= tag.span invited_to_team.name, class: 'input block bg-white border-2' %>
+
+        <%= form.hidden_field :invite_token, value: params[:invite_token] %>
+        <%= form.hidden_field :team_name, value: invited_to_team.name %>
+      <% else %>
+        <%= form.text_field :team_name, placeholder: 'Your team name', class: 'input' %>
+      <% end %>
+    </div>
+  
+
+
+    <div class="field">
+      <%= form.label :name, t("labels.name") %>
+      <%= form.text_field :name, placeholder: "Your full name", class: "input" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email, t("labels.email") %>
+      <% if has_invite_token? %>
+        <%= form.email_field :email, value: invited_email, placeholder: t("placeholders.name"), autocomplete: "email", class: "input" %>
+      <% else %>
+        <%= form.email_field :email, placeholder: t("placeholders.name"), autocomplete: "email", class: "input" %>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password, t("labels.password") %>
+      <%= form.password_field :password, placeholder: t("placeholders.password"), autocomplete: "new-password", class: "input" %>
+    </div>
+
+    <%= render "sjabloon/signups/subscribe_checkbox", form: form %>
+    <%= render "sjabloon/signups/consent_checkboxes", form: form %>
+
+    <div class="actions">
+      <%= form.submit t("buttons.create_account"), class: "btn btn--primary" %>
+    </div>
+  <% end %>
+
+  <p class="mt-4 text-sm text-center text-gray-600">
+    <%= t("helpers.already_have_account") %> <%= link_to t("links.login"), new_user_session_path %>
+  </p>
+</div>
+

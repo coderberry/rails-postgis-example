@@ -1,0 +1,13 @@
+<%= form_with model: team do |form| %>
+  <%= render "shared/flash", flash: team.errors %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, required: true, placeholder: "Your team name", class: "input" %>
+  </div>
+
+  <div class="buttons">
+    <%= form.submit class: "btn btn--primary"%>
+  </div>
+<% end %>
+

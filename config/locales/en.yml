@@ -1,0 +1,105 @@
+en:
+  locales:
+    en: "English"
+    nl: "Nederlands (Dutch)"
+  buttons:
+    start_trial: "Start Free Trial"
+    create_account: "Create account"
+    login: "Log in"
+    resent_password: "Resend password"
+    change_password: "Change my password"
+    update: "Update"
+    accept: "Accept"
+    month: 'Month'
+    year: 'Year'
+  labels:
+    name: "Name"
+    company_name: "Company name"
+    email: "Email"
+    password: "Password"
+    current_password: "Current password"
+    credit_card: "Credit or debit card"
+  placeholders:
+    name: "Your full name"
+    email: "Your email"
+    password: "•••••••••••••"
+    company_name: "Your company name"
+    coupon_code: "Coupon-code"
+  links:
+    login: "Log in"
+    view: "View"
+    edit: "Edit"
+    delete: "Delete"
+  signup:
+    header: "Create an account"
+  login:
+    header: "Log in"
+    remember_me: "Remember me"
+    password_reset_link: "Forgot your password?"
+  edit_registration:
+    header: "Edit account"
+  password_reset:
+    header: "Forgot your password?"
+  announcements:
+    meta_title: "What's new at %{app_name}?"
+    meta_description: "Announcements about things that are new, updated or improved with %{app_name}."
+    header: "What's new at %{app_name}?"
+    empty_state_text: "Amazing things will happen soon!"
+  pages:
+    home:
+    about:
+      meta_title: "About"
+      header: "About"
+      intro: "Tell a little story about how your product came to be, a vision, ideas and something more about you."
+    pricing:
+      meta_title: "Pricing"
+      header: "Pricing"
+      intro: "Some more general info about the value of this product. Money-back guarantee, free x-day trial, etc."
+      change_plan: "Change plan"
+      on_trial: "You will be on a trial plan first and be charged in %{trial_days} days."
+    contact:
+      meta_title: "Contact"
+      header: "Contact"
+      intro: "What's the easiest and quickest way for leads/customers to contact you?"
+  helpers:
+    subscription_details: "No credit card · 14-day free trial"
+    already_have_account: "Already have any account?"
+    change_password: "(leave blank if you do not want to change it)"
+    confirm_current_password: "(we need your current password to confirm your changes)"
+    and: "And"
+  navigation:
+    edit_registration: "Edit account"
+    notifications: "Notifications"
+    about: 'About us'
+    contact: 'Contact'
+    features: 'Features'
+    pricing: 'Pricing'
+    customers: 'Customers'
+    logout: "Log out"
+    menu: "Menu"
+  dashboard_navigation:
+    dashboard: "Dashboard"
+    user: "Users"
+    active_users: "Active users"
+    invited_users: "Invited users"
+    tasks: "Tasks"
+    settings: "Settings"
+    billing: "Billing"
+    roles: "Roles"
+    history: "History"
+  footer:
+    company: "Company"
+    about: "About"
+    pricing: "Pricing"
+    team: "Team"
+    vision: "Vision"
+    features: "Features"
+    feature_1: "Feature 1"
+    feature_2: "Feature 2"
+    feature_3: "Feature 3"
+    support: "Support"
+    contact: "Contact"
+    helpdesk: "Helpdesk"
+    terms: "Terms"
+    privacy: "Privacy"
+
