@@ -24,4 +24,4 @@ RUN sudo apt-get install -y \
 
 # Run setup script
 USER gitpod
-RUN bash -lc "cd $THEIA_WORKSPACE_ROOT && bin/setup"
+RUN bash -lc "ls -al $THEIA_WORKSPACE_ROOT"
